@@ -1,27 +1,16 @@
 "use strict";
 
-var calculator = {
-	'+': function(){
-		return +this.a + +this.b;
-	},
-	'-': function(){
-		return this.a - this.b;
-	},
-	'*': function(){
-		return this.a * this.b;
-	},
-	'/': function(){
-		return this.a / this.b;
-	},
-	'read': function(){
-		this.a = prompt('a?',0);
-		this.operation = prompt('operation: + - * /',"");
-        this.b = prompt('b?',0);
-        return this.operation;
+var calculate = function (sign){
+	var operator = sign;
+	return function(x1){
+		var a = x1;
+		return function (x2){
+			return eval(x1 + sign + x2);
+
+		}
 	}
 }
-var action = calculator.read();
-alert( 'Ressult is: ' + calculator[action]() );
-//console.log( calculator.minus() );
-//console.log( calculator.mult() );
-//console.log( calculator.divide() );
+console.log(calculate("+")(1)(2) === 3);
+console.log(calculate("*")(4)(2) === 8);
+console.log(calculate("/")(9)(3) === 3);
+console.log(calculate("-")(8)(7) === 1);
