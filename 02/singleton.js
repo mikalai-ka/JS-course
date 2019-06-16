@@ -10,5 +10,3 @@ console.log(new Singleton === new Singleton);
 console.log(typeof new Singleton() === "object");
 console.log(new Singleton() instanceof Singleton === true);
 console.log(new Singleton() === new Singleton());
-
-//https://github.com/paveleroshkinweb/JS_LAB_TouchSoft
